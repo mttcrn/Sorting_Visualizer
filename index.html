@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sorting Visualizer</title>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="column" id="left_column">
+        <div class="buttons_container">
+          <button id="bubble_sort_link" data-algorithm="bubble">Bubble Sort</button>
+          <button id="selection_sort_link" data-algorithm="selection">Selection Sort</button>
+          <button id="insertion_sort_link" data-algorithm="insertion">Insertion Sort</button>
+        </div>
+      </div>
+
+      <div class="column" id="center_column">
+        <div class="bars_container" id="bars_container"></div>
+      </div>
+
+      <div class="column" id="right_column">
+        <div id="algorithm_description" class="description">
+           <p id="algorithm_description_text">Welcome to Sorting Visualizer. </br> Click on an algorithm below to get started and witness the sorting process in action. Have fun exploring and learning! </br> The default algorithm is Bubble sort. </p>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="index.js"></script>
+    <script src="algorithms/bubbleSort.js"></script>
+    <script src="algorithms/selectionSort.js"></script>
+    <script src="algorithms/insertionSort.js"></script>
+
+  </body>
+</html>
