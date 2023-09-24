@@ -1,36 +1,26 @@
-const bars_container = document.getElementById('bars_container');
-let heightFactor = 6.5;
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-export async function bubbleSort(array){
-  //sortingInProgress.value = true;
-  let bars = document.getElementsByClassName('bar');
-  for(let i = 0; i < array.length; i++){
-    for(let j = 0; j < array.length - i - 1; j++){
-      //if(!sortingInProgress.value) return;
+async function bubbleSort(array){
+  sortingInProgress = true;
+  const n = array.length;
+  for(let i = 0; i < n; i++){
+    for(let j = 0; j < n - i - 1; j++){
       if(array[j] > array[j + 1]){
-          for(let k = 0; k < bars.length; k++){
+          for(let k = 0; k < numOfBars; k++){
             if(k !== j && k !== j + 1){
-              bars[k].style.backgroundColor = "aqua";
+              setBarColor(k, "aqua");
             }
           }
         let temp = array[j];
         array[j] = array[j + 1];
         array[j + 1] = temp;
-        bars[j].style.height = array[j] * heightFactor + "px";
-        bars[j].style.backgroundColor = "lightgreen";
-        bars[j + 1].style.height = array[j + 1] * heightFactor + "px";
-        bars[j + 1].style.backgroundColor = "lightgreen";
-        await sleep(500);
+        setBarHeight(j, array[j]);
+        setBarColor(j, "lightgreen");
+        setBarHeight(j+1, array[j+1]);
+        setBarColor(j+1, "lightgreen");
+        await sleep(400);
       }
     }
-    await sleep(500);
+    await sleep(400);
   }
-  //sortingInProgress.value = false;
-  return array;
+  sortingInProgress = false;
+  resetBarColors();
 }
-
-export { bubbleSort };
