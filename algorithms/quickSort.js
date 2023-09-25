@@ -8,21 +8,21 @@ async function quickSort(array, left = 0, right = array.length - 1) {
 
   if (left === 0 && right === array.length - 1) {
     for (let i = left; i <= right; i++) {
-      setBarColor(i, "lightgreen");
+      setBarColor(i, finalColor);
     }
-    await sleep(250);
+    await sleep(250/velocity);
   }
 }
 
 async function partition(array, left, right) {
   const pivot = array[right];
-  setBarColor(right, "red");
-  await sleep(200);
+  setBarColor(right, bonusColor);
+  await sleep(200/velocity);
 
   let i = left - 1;
   for (let j = left; j < right; j++) {
-    setBarColor(j, "yellow");
-    await sleep(250);
+    setBarColor(j, secondaryColor);
+    await sleep(250/velocity);
 
     if (array[j] < pivot) {
       i++;
@@ -31,17 +31,17 @@ async function partition(array, left, right) {
       array[i] = array[j];
       array[j] = temp;
       if(i != j){
-        setBarColor(i, "orange");
-        setBarColor(j, "orange");
+        setBarColor(i, swapColor);
+        setBarColor(j, swapColor);
         setBarHeight(i, array[i]);
         setBarHeight(j, array[j]);
-        await sleep(400);
+        await sleep(400/velocity);
       }
-      setBarColor(i, "aqua");
-      setBarColor(j, "aqua");
+      setBarColor(i, primaryColor);
+      setBarColor(j, primaryColor);
     }
-    setBarColor(j, "aqua");
-    await sleep(250);
+    setBarColor(j, primaryColor);
+    await sleep(250/velocity);
   }
 
   const pivotIndex = i + 1;
@@ -49,14 +49,14 @@ async function partition(array, left, right) {
   array[pivotIndex] = array[right];
   array[right] = temp;
 
-  setBarColor(pivotIndex, "orange");
-  setBarColor(right, "orange");
+  setBarColor(pivotIndex, swapColor);
+  setBarColor(right, swapColor);
   setBarHeight(pivotIndex, array[pivotIndex]);
   setBarHeight(right, array[right]);
-  await sleep(400);
+  await sleep(400/velocity);
 
-  setBarColor(pivotIndex, "lightgreen");
-  setBarColor(right, "lightgreen");
+  setBarColor(pivotIndex, finalColor);
+  setBarColor(right, finalColor);
 
   return pivotIndex;
 }

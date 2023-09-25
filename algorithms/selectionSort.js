@@ -3,38 +3,36 @@ async function selectionSort(array) {
   const n = array.length;
   for (let i = 0; i < n - 1; i++) {
     let minIndex = i;
-    setBarColor(i, "yellow");
-    await sleep(200);
+    setBarColor(i, secondaryColor);
+    await sleep(200/velocity);
 
     for (let j = i + 1; j < n; j++) {
-      setBarColor(j, "yellow");
-      await sleep(200);
+      setBarColor(j, secondaryColor);
+      await sleep(200/velocity);
 
       if (array[j] < array[minIndex]) {
-        setBarColor(minIndex, "aqua");
+        setBarColor(minIndex, primaryColor);
         minIndex = j;
-        setBarColor(minIndex, "yellow");
+        setBarColor(minIndex, secondaryColor);
       } else {
-        setBarColor(j, "aqua");
+        setBarColor(j, primaryColor);
       }
     }
 
     if (minIndex !== i) {
-      setBarColor(i, "lightgreen");
-      setBarColor(minIndex, "lightgreen");
+      setBarColor(i, swapColor);
+      setBarColor(minIndex, swapColor);
       let temp = array[i];
       array[i] = array[minIndex];
       array[minIndex] = temp;
       setBarHeight(i, array[i]);
       setBarHeight(minIndex, array[minIndex]);
-      await sleep(400);
-      setBarColor(i, "orange");
-      setBarColor(minIndex, "orange");
+      await sleep(400/velocity);
     }
 
-    setBarColor(i, "lightgreen");
+    setBarColor(i, finalColor);
     if(minIndex != i){
-      setBarColor(minIndex, "aqua");
+      setBarColor(minIndex, primaryColor);
     }
   }
   sortingInProgress = false;

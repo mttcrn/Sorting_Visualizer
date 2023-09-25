@@ -5,29 +5,29 @@ async function insertionSort(array) {
     let key = array[i];
     let j = i - 1;
 
-    setBarColor(i, "yellow");
-    await sleep(200);
+    setBarColor(i, secondaryColor);
+    await sleep(200/velocity);
 
     while (j >= 0 && array[j] > key) {
-      setBarColor(j, "yellow");
-      await sleep(200);
+      setBarColor(j, secondaryColor);
+      await sleep(200/velocity);
 
       array[j + 1] = array[j];
       setBarHeight(j + 1, array[j + 1]);
-      setBarColor(j + 1, "lightgreen");
+      setBarColor(j + 1, finalColor);
       j = j - 1;
-      await sleep(200);
+      await sleep(200/velocity);
     }
 
     if(j === 0){
-      setBarColor(j, "lightgreen");
+      setBarColor(j, finalColor);
     }
     array[j + 1] = key;
     setBarHeight(j + 1, key);
-    setBarColor(j + 1, "lightgreen");
-    await sleep(400);
+    setBarColor(j + 1, finalColor);
+    await sleep(400/velocity);
 
-    setBarColor(i, "lightgreen");
+    setBarColor(i, finalColor);
   }
   sortingInProgress = false;
 }

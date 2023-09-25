@@ -7,7 +7,7 @@ async function mergeSort(array, left, right) {
     await mergeSort(array, mid + 1, right);
 
     await merge(array, left, mid, right);
-  } 
+  }
 }
 
 async function merge(array, left, mid, right) {
@@ -29,21 +29,21 @@ async function merge(array, left, mid, right) {
   let k = left;
 
   while (i < n1 && j < n2) {
-    setBarColor(left + i, "yellow");
-    setBarColor(mid + 1 + j, "yellow");
-    await sleep(250);
+    setBarColor(left + i, secondaryColor);
+    setBarColor(mid + 1 + j, secondaryColor);
+    await sleep(250/velocity);
 
     if (leftArray[i] <= rightArray[j]) {
       array[k] = leftArray[i];
       setBarHeight(k, leftArray[i]);
-      setBarColor(k, "lightgreen");
-      await sleep(250);
+      setBarColor(k, finalColor);
+      await sleep(250/velocity);
       i++;
     } else {
       array[k] = rightArray[j];
       setBarHeight(k, rightArray[j]);
-      setBarColor(k, "lightgreen");
-      await sleep(250);
+      setBarColor(k, finalColor);
+      await sleep(250/velocity);
       j++;
     }
 
@@ -53,8 +53,8 @@ async function merge(array, left, mid, right) {
   while (i < n1) {
     array[k] = leftArray[i];
     setBarHeight(k, leftArray[i]);
-    setBarColor(k, "lightgreen");
-    await sleep(250);
+    setBarColor(k, finalColor);
+    await sleep(250/velocity);
     i++;
     k++;
   }
@@ -62,8 +62,8 @@ async function merge(array, left, mid, right) {
   while (j < n2) {
     array[k] = rightArray[j];
     setBarHeight(k, rightArray[j]);
-    setBarColor(k, "lightgreen");
-    await sleep(250);
+    setBarColor(k, finalColor);
+    await sleep(250/velocity);
     j++;
     k++;
   }

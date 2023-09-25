@@ -12,11 +12,11 @@ async function heapSort(array) {
     array[i] = temp;
 
     setBarHeight(0, array[0]);
-    setBarColor(0, "orange");
+    setBarColor(0, swapColor);
     setBarHeight(i, array[i]);
-    setBarColor(i, "orange");
-    await sleep(400);
-    setBarColor(i, "lightgreen");
+    setBarColor(i, swapColor);
+    await sleep(400/velocity);
+    setBarColor(i, finalColor);
 
     await heapify(array, i, 0);
   }
@@ -42,10 +42,10 @@ async function heapify(array, n, i) {
     array[largest] = temp;
 
     setBarHeight(i, array[i]);
-    setBarColor(i, "yellow");
+    setBarColor(i, secondaryColor);
     setBarHeight(largest, array[largest]);
-    setBarColor(largest, "yellow");
-    await sleep(250);
+    setBarColor(largest, secondaryColor);
+    await sleep(250/velocity);
 
     await heapify(array, n, largest);
   }

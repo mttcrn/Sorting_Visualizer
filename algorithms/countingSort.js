@@ -8,8 +8,8 @@ async function countingSort(array) {
   for (let i = 0; i < array.length; i++) {
     const index = array[i] - min;
     countArray[index]++;
-    setBarColor(i, "yellow");
-    await sleep(250);
+    setBarColor(i, secondaryColor);
+    await sleep(250/velocity);
   }
 
   let outputIndex = 0;
@@ -20,12 +20,12 @@ async function countingSort(array) {
       array[outputIndex] = i + min;
 
       setBarHeight(outputIndex, array[outputIndex]);
-      setBarColor(outputIndex, "lightgreen");
+      setBarColor(outputIndex, finalColor);
 
       outputIndex++;
       countArray[i]--;
 
-      await sleep(250);
+      await sleep(250/velocity);
     }
   }
   sortingInProgress = false;

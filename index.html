@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/268cff249e.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&display=swap" rel="stylesheet">
+
     <link rel="icon" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <title>Sorting Visualizer</title>
@@ -22,6 +28,11 @@
           <button id="heap" data-algorithm="heap">Heap Sort</button>
           <button id="counting" data-algorithm="counting">Counting Sort</button>
         </div>
+
+        <div class="speed_control">
+          <input type="range" id="sort_speed" min="1" max="5" value="1" class="speed_input">
+          <label for="speedRange" class="label"> Adjust here the speed! </label>
+        </div>
       </div>
 
       <div class="column" id="center_column">
@@ -30,7 +41,7 @@
 
       <div class="column" id="right_column">
         <div id="algorithm_description" class="description">
-           <p id="algorithm_description_text">Welcome to Sorting Visualizer. </br> Click on an algorithm below to get started and witness the sorting process in action. Have fun exploring and learning! </br> The default algorithm is Bubble sort. </p>
+           <p id="algorithm_description_text">Welcome to Sorting Visualizer. </br> Click on an algorithm below to get started and witness the sorting process in action. Have fun exploring and learning! </p>
         </div>
       </div>
 
@@ -45,5 +56,10 @@
     <script src="algorithms/mergeSort.js"></script>
     <script src="algorithms/heapSort.js"></script>
     <script src="algorithms/countingSort.js"></script>
+
+    <footer>
+      Created and designed with <i class="far fa-heart"></i> by <a href="https://github.com/mttcrn" target="_blank">Caterina Motti</a>
+    </footer>
+
   </body>
 </html>
