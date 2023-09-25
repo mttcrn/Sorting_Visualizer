@@ -1,7 +1,7 @@
 # Sorting Visualizer
 
 Sorting Visualizer is a web application that allows you to visualize various sorting algorithms in action. It provides a visual representation of how different sorting algorithms work, making it an educational tool for understanding sorting techniques.
-You can try it live [here](https://mttcrn.github.io/Sorting_Visualizer/).
+You can try it live [here](https://mttcrn.github.io/sorting-visualizer/).
 
 ![Sorting Visualizer Screenshot](./images/screenshot.png)
 
