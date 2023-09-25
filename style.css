@@ -145,6 +145,7 @@ button:hover{
     flex: 1;
     width: 100%;
     padding: 20px 5px;
+    flex-direction: column;
   }
 
   .buttons_container{
@@ -164,6 +165,10 @@ button:hover{
     font-size: 14px;
   }
 
+  .bars_container{
+    margin-bottom: 20px;
+  }
+
   .speed_control {
     margin-top: 15px;
   }
@@ -175,7 +180,6 @@ button:hover{
 
   .description{
     margin: 40px 0px;
-    margin-bottom: 80px;
     padding: 10px;
     text-align: center;
   }

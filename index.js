@@ -128,3 +128,23 @@ algorithmButtons.forEach((button) => {
     startSorting();
   });
 });
+
+
+//Responsive design sripts
+const algorithmDescription = document.getElementById("algorithm_description");
+const buttonsContainer = document.getElementById("buttons_container");
+const barsContainer = document.getElementById("bars_container");
+
+function moveElementBefore(elementToMove, referenceElement) {
+  referenceElement.parentNode.insertBefore(elementToMove, referenceElement);
+}
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 768) {
+    moveElementBefore(algorithmDescription, buttonsContainer);
+  } else {
+    moveElementBefore(barsContainer, null);
+  }
+});
+
+window.dispatchEvent(new Event("resize"));
