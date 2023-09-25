@@ -7,8 +7,16 @@ async function mergeSort(array, left, right) {
     await mergeSort(array, mid + 1, right);
 
     await merge(array, left, mid, right);
+
+    if (left === 0 && right === array.length - 1) {
+      for (let i = 0; i < array.length; i++) {
+        setBarColor(i, finalColor);
+        await sleep(250 / velocity);
+      }
+    }
   }
 }
+
 
 async function merge(array, left, mid, right) {
   const n1 = mid - left + 1;
@@ -31,30 +39,28 @@ async function merge(array, left, mid, right) {
   while (i < n1 && j < n2) {
     setBarColor(left + i, secondaryColor);
     setBarColor(mid + 1 + j, secondaryColor);
-    await sleep(250/velocity);
+    await sleep(250 / velocity);
 
     if (leftArray[i] <= rightArray[j]) {
       array[k] = leftArray[i];
       setBarHeight(k, leftArray[i]);
-      setBarColor(k, finalColor);
-      await sleep(250/velocity);
+      await sleep(250 / velocity);
       i++;
     } else {
       array[k] = rightArray[j];
       setBarHeight(k, rightArray[j]);
-      setBarColor(k, finalColor);
-      await sleep(250/velocity);
+      await sleep(250 / velocity);
       j++;
     }
-
+    setBarColor(k, finalColor); // Imposta il colore a finalColor dopo aver posizionato l'elemento
     k++;
   }
 
   while (i < n1) {
     array[k] = leftArray[i];
     setBarHeight(k, leftArray[i]);
-    setBarColor(k, finalColor);
-    await sleep(250/velocity);
+    setBarColor(k, finalColor); // Imposta il colore a finalColor dopo aver posizionato l'elemento
+    await sleep(250 / velocity);
     i++;
     k++;
   }
@@ -62,8 +68,8 @@ async function merge(array, left, mid, right) {
   while (j < n2) {
     array[k] = rightArray[j];
     setBarHeight(k, rightArray[j]);
-    setBarColor(k, finalColor);
-    await sleep(250/velocity);
+    setBarColor(k, finalColor); // Imposta il colore a finalColor dopo aver posizionato l'elemento
+    await sleep(250 / velocity);
     j++;
     k++;
   }

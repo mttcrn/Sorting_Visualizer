@@ -1,10 +1,13 @@
 const primaryColor = "#0094FE";
 const secondaryColor = "#FFC94B";
-const swapColor = "#F37B84";
+const swapColor = "#FF03A8";
 const finalColor = "#31CD8C";
 const bonusColor = "#FA3443";
 
-const bars_container = document.getElementById('bars_container');
+const barsContainer = document.getElementById('bars_container');
+const algorithmDescription = document.getElementById("algorithm_description");
+const buttonsContainer = document.getElementById("buttons_container");
+
 let minRange = 1;
 let maxRange = 100;
 let numOfBars = 20;
@@ -21,7 +24,7 @@ const algorithmDescriptions = {
   insertion: "Insertion Sort is a simple sorting algorithm that builds the final sorted array one item at a time. \n It iterates through the input array, comparing each element to its adjacent elements and inserting it into the correct position within the sorted portion of the array. \nIt is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort. However, it provides several advantages: it is simple, efficient for small datasets or nearly sorted datasets, and it is an adaptive sorting algorithm, meaning it performs well when elements are already partially ordered.",
   quick: "QuickSort is a highly efficient comparison-based sorting algorithm that follows a divide-and-conquer strategy. \nIt works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. The sub-arrays are then recursively sorted. \nQuickSort is known for its average-case time complexity, which is often faster than many other sorting algorithms, and it is commonly used in practice for its speed and versatility. However, its worst-case time complexity can be less favorable, which has led to variations and optimizations of the algorithm.",
   merge: "Merge Sort is an efficient, comparison-based sorting algorithm that follows the divide-and-conquer strategy. \nIt divides the unsorted list into smaller sublists, recursively sorts these sublists, and then merges them to produce a sorted list. \nMerge Sort is known for its stability, predictable performance, and consistent time complexity, making it a popular choice for sorting large datasets.",
-  heap: "Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure to achieve sorting. \nIt first builds a max-heap (or min-heap) from the input array and then repeatedly extracts the maximum (or minimum) element from the heap and places it at the end of the sorted array. \nHeap Sort combines the advantages of both merge sort and insertion sort, making it efficient for large datasets and offering a guaranteed worst-case time complexity.",
+  heap: "Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure to achieve sorting. \nIt first builds a max-heap from the input array and then repeatedly extracts the maximum element from the heap and places it at the end of the sorted array. \nHeap Sort combines the advantages of both merge sort and insertion sort, making it efficient for large datasets and offering a guaranteed worst-case time complexity.",
   counting: "Counting Sort is a non-comparison-based sorting algorithm that works by determining the count or frequency of each distinct element in the input array. \nIt creates a counting array to keep track of these counts and then constructs a sorted output array by mapping each element to its appropriate position based on the counts. \nCounting Sort is particularly efficient when sorting integers within a known range and has a linear time complexity, making it one of the fastest sorting algorithms for such scenarios. However, it is less suitable for sorting data with a wide range of values or non-integer data."
 };
 
@@ -49,7 +52,7 @@ function renderBars(array){
     let bar = document.createElement("div");
     bar.classList.add("bar");
     bar.style.height = array[i] * heightFactor + "px";
-    bars_container.appendChild(bar);
+    barsContainer.appendChild(bar);
   }
 }
 
@@ -57,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function(){
   createRandomArray();
   renderBars(unsorted_array);
 });
-
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -72,7 +74,7 @@ function resetBarColors() {
 
 function randomizeAndRestart() {
   createRandomArray();
-  bars_container.innerHTML = '';
+  barsContainer.innerHTML = '';
   renderBars(unsorted_array);
 }
 
@@ -118,6 +120,7 @@ algorithmButtons.forEach((button) => {
     if (sortingInProgress) {
       return;
     }
+    barsContainer.scrollIntoView({ behavior: 'smooth' });
     selectedAlgorithm = button.getAttribute("data-algorithm");
     setAlgorithmDescription(selectedAlgorithm);
     if(!first){
@@ -131,10 +134,6 @@ algorithmButtons.forEach((button) => {
 
 
 //Responsive design sripts
-const algorithmDescription = document.getElementById("algorithm_description");
-const buttonsContainer = document.getElementById("buttons_container");
-const barsContainer = document.getElementById("bars_container");
-
 function moveElementBefore(elementToMove, referenceElement) {
   referenceElement.parentNode.insertBefore(elementToMove, referenceElement);
 }

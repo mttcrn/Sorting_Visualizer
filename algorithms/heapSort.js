@@ -35,6 +35,7 @@ async function heapify(array, n, i) {
     largest = right;
   }
 
+  setBarColor(largest, secondaryColor);
 
   if (largest !== i) {
     const temp = array[i];
@@ -42,11 +43,13 @@ async function heapify(array, n, i) {
     array[largest] = temp;
 
     setBarHeight(i, array[i]);
-    setBarColor(i, secondaryColor);
+    setBarColor(i, swapColor);
     setBarHeight(largest, array[largest]);
+    setBarColor(largest, swapColor);
+    await sleep(250/velocity);
+    setBarColor(i, secondaryColor);
     setBarColor(largest, secondaryColor);
     await sleep(250/velocity);
-
     await heapify(array, n, largest);
   }
 }

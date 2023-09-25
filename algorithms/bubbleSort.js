@@ -13,14 +13,14 @@ async function bubbleSort(array){
         setBarColor(j+1, swapColor);
         await sleep(400/velocity);
         setBarColor(j, primaryColor);
-        if(j+1 == n-i-1){
-          setBarColor(j+1, finalColor);
-        } else {
-          setBarColor(j+1, primaryColor);
-        }
+        setBarColor(j+1, primaryColor);
       }
     }
     await sleep(400/velocity);
+  }
+  for(let i = 0; i < n; i++){
+    setBarColor(i, finalColor);
+    await sleep(200/velocity);
   }
   sortingInProgress = false;
 }
