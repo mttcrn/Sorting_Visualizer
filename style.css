@@ -7,9 +7,6 @@
 body{
   background-color: black;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: 'Inter Tight', sans-serif;
 }
 
@@ -20,7 +17,7 @@ footer {
   left: 0;
   margin: 20px;
   padding: 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: white;
   text-align: center;
   align-items: center;
@@ -61,7 +58,6 @@ footer a:hover{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
 .column {
@@ -135,40 +131,56 @@ button:hover{
 }
 
 @media (max-width: 768px) {
-  body{
-    font-size: 16px;
-  }
-
   .container {
+    display: flex;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 10px;
-    padding: 10px 0;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
   }
 
   .column {
     flex: 1;
     width: 100%;
+    padding: 20px 5px;
   }
 
   .buttons_container{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    width: 100%;
     margin: 10px;
+    padding: 0px;
   }
 
   .buttons_container > button {
+    width: 120px;
+    height: 35px;
     margin: 10px;
-    flex-basis: calc(50% - 20px);
+    font-size: 14px;
   }
 
   .speed_control {
-    margin-top: 20px;
+    margin-top: 15px;
+  }
+
+  .label{
+    margin: 5px;
+    font-size: 14px;
   }
 
   .description{
-    margin: 20px;
+    margin: 40px 0px;
+    margin-bottom: 80px;
+    padding: 10px;
     text-align: center;
+  }
+
+  .description p {
+    font-size: 16px;
   }
 }
